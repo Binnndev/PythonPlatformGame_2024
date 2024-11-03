@@ -10,7 +10,6 @@ def flip(sprites):
    return [pygame.transform.flip(sprite, True, False) for sprite in sprites]
 
 
-
 def load_sprite_sheets(dir1, dir2, width, height, directon = False):
    path = join("assets", dir1, dir2)
    images = [f for f in listdir(path) if isfile(join(path,f))]
@@ -36,9 +35,6 @@ def load_sprite_sheets(dir1, dir2, width, height, directon = False):
            all_sprites[image.replace(".png","")] = sprites
 
 
-   # print("All Sprites Loaded:", all_sprites)
-
-
    return all_sprites
 
 def load_block(size):
@@ -62,12 +58,10 @@ def get_background(name) :
    _,_, width, height = image.get_rect()
    tiles = []
 
-
    for i in range(WIDTH // width +  1):
        for j in range(HEIGHT // height + 1):
            pos = [ i * width, j * height]
            tiles.append(pos)
-
 
    return tiles, image
 
@@ -75,7 +69,6 @@ def get_background(name) :
 def draw(window , background, bg_image, player, objects , offset_x, score_board, start_point):
    for tile in background:
        window.blit(bg_image, tile)
-
 
    for obj in objects:
        obj.draw(window, offset_x)

@@ -2,14 +2,13 @@ import pygame
 from src.spriteLoader import load_sprite_sheets
 from src.block import Block
 
-
 class BaseFan(Block):
     ANIMATION_DELAY = 3
     MOVE_SPEED = 1.65
 
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width)
-        self.fan_images = load_sprite_sheets("Traps", "Fan", width, height)
+        self.fan_images = load_sprite_sheets("Traps", "Falling Platforms", width, height)
         self.frames = self.fan_images["Off"]
         self.image = self.frames[0]
         self.rect = self.image.get_rect(topleft=(x, y))
@@ -44,9 +43,7 @@ class BaseFan(Block):
         self.move()
 
     def move(self):
-        # Được override bởi các lớp con
         pass
-
 
 class VerticalFan(BaseFan):
     def __init__(self, x, y, width, height, distance=400):
@@ -65,7 +62,6 @@ class VerticalFan(BaseFan):
             if self.rect.y >= self.start_y:
                 self.moving_up = True
 
-
 class HorizontalFan(BaseFan):
     def __init__(self, x, y, width, height, distance=550):
         super().__init__(x, y, width, height)
@@ -83,21 +79,17 @@ class HorizontalFan(BaseFan):
             if self.rect.x <= self.start_x:
                 self.moving_right = True
 
-
 class Fan(VerticalFan):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height, 400)
-
 
 class Fan_M(VerticalFan):
     def __init__(self, x, y, width, height, num):
         super().__init__(x, y, width, height, num)
 
-
 class FanRow(HorizontalFan):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height, 550)
-
 
 class Fan_N(HorizontalFan):
     def __init__(self, x, y, width, height, num):

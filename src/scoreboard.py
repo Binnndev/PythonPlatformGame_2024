@@ -1,4 +1,3 @@
-
 import pygame.font
 from src.confige import FONT_SCORE, WHITE, SCORE_POS, DATA_FILE, FONT_LEADERBOARD, GREY, WIDTH, HEIGHT
 from src.spriteLoader import get_highest_score

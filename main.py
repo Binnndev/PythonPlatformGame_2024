@@ -4,8 +4,6 @@ from src.game import main
 from src.confige import WIDTH, HEIGHT, FPS
 from src.music import play_background_music
 
-
-
 def main_loop():
     pygame.init()
     pygame.font.init()
@@ -23,8 +21,6 @@ def main_loop():
         clock.tick(FPS)
 
         if in_menu:
-            # result = draw_intro_screen(window)
-            # print(result)
             start_button_rect, exit_button_rect, leaderboard_button, intro_button = draw_intro_screen(window)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -78,7 +74,6 @@ def main_loop():
         pygame.display.update()
 
     pygame.quit()
-
 
 if __name__ == "__main__":
     main_loop()

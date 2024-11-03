@@ -7,7 +7,7 @@ class Food(Object):
     ANIMATION_DELAY = 2
 
     def __init__(self, x, y, name_food):
-        super().__init__(x, y, 32, 32, name="food")
+        super().__init__(x, y, 72, 72, name="food")
         self.all_sprites = load_sprite_sheets("Items", "Fruits", 32, 32, False)
         self.rect = self.image.get_rect(topleft=(x, y))
         self.animation_count = 0
@@ -24,10 +24,6 @@ class Food(Object):
         self.animation_count += 1
 
         self.mask = pygame.mask.from_surface(self.image)
-
-    # # @override draw method
-    # def draw(self, win, offset_x):
-    #     win.blit(self.sprite,  (self.rect.x - offset_x, self.rect.y))
 
 
 class Banana(Food):
@@ -48,3 +44,15 @@ class Strawberry(Food):
 class Melon(Food):
     def __init__(self, x, y):
         super().__init__(x, y, "Melon")
+
+class Kiwi(Food):
+    def __init__(self, x, y):
+        super().__init__(x, y, "Kiwi")
+
+class Orange(Food):
+    def __init__(self, x, y):
+        super().__init__(x, y, "Orange")
+
+class Pineapple(Food):
+    def __init__(self, x, y):
+        super().__init__(x, y, "Pineapple")
